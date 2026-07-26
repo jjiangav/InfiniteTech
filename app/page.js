@@ -20,8 +20,7 @@ export default function Home() {
             Computer repair and IT support for Metro Vancouver
           </h1>
           <p className="mt-4 max-w-xl text-lg text-slate-600">
-            From a broken laptop to IT help for your business, tell me what’s
-            going on and I’ll follow up with the right next steps.
+            From a broken laptop to IT help for your business, tell us what the issue is and we will follow up with the right next steps.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -59,10 +58,10 @@ export default function Home() {
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">
-                See me actually do this work
+                Repair Tutorials
               </p>
               <p className="mt-1 text-slate-700">
-                I post real laptop repairs on YouTube — teardowns, fixes, and
+                Our real laptop repairs on YouTube — teardowns, fixes, and
                 troubleshooting, start to finish.
               </p>
             </div>
