@@ -172,6 +172,10 @@ export default function QuoteForm() {
           onChange={(e) => update("message", e.target.value)}
           className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
         />
+        <p className="mt-2 text-xs text-grey">
+          Got a photo of the screen or error? This box is text only — text it
+          to {business.phoneDisplay} instead.
+        </p>
       </div>
 
       <label className="flex items-start gap-2 text-sm text-ink-soft">
