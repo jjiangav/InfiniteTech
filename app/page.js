@@ -14,6 +14,25 @@ const symptomShortcuts = [
   "Something else",
 ];
 
+const featuredVideos = [
+  {
+    id: "5JywAoQAIAE",
+    title: "Dell XPS 15 9550 motherboard replacement — not turning on, fixed",
+  },
+  {
+    id: "V0_Ej6f28Nk",
+    title: "How to replace the battery on a Dell Inspiron 13/5000/7300 series",
+  },
+  {
+    id: "ce2cm0L8oYI",
+    title: "Dell Latitude 7370 teardown and repair",
+  },
+  {
+    id: "xicmmISTO24",
+    title: "WiFi and Bluetooth fix — Dell Precision M3800 and XPS 15",
+  },
+];
+
 const howItWorks = [
   {
     step: "01",
@@ -86,16 +105,6 @@ export default function Home() {
             >
               Send a quote request instead
             </Link>
-            <div className="flex flex-col gap-2.5 border-t border-white/15 pt-4">
-              <div className="flex gap-2.5 text-sm leading-snug text-white/80">
-                <span className="text-brand-yellow">—</span>
-                <span>Diagnostic comes off the repair</span>
-              </div>
-              <div className="flex gap-2.5 text-sm leading-snug text-white/80">
-                <span className="text-brand-yellow">—</span>
-                <span>Price in writing before we start</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -136,17 +145,27 @@ export default function Home() {
       <section className="px-4 py-14 sm:px-8">
         <div className="grid grid-cols-1 items-center gap-10 sm:grid-cols-2">
           <div className="grid grid-cols-2 gap-3">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div
-                key={i}
-                className="flex aspect-video items-center justify-center rounded-md"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(135deg, #d9d7d0 0px, #d9d7d0 10px, #cfcdc6 10px, #cfcdc6 20px)",
-                }}
+            {featuredVideos.map((video) => (
+              <a
+                key={video.id}
+                href={`https://www.youtube.com/watch?v=${video.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block aspect-video overflow-hidden rounded-md bg-ink"
               >
-                <span className="font-mono text-xs text-ink-soft">video still</span>
-              </div>
+                <Image
+                  src={`/images/youtube/${video.id}.jpg`}
+                  alt={video.title}
+                  fill
+                  sizes="(min-width: 640px) 25vw, 50vw"
+                  className="object-cover transition group-hover:opacity-80"
+                />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 transition group-hover:bg-brand-yellow">
+                    <span className="ml-0.5 h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-ink" />
+                  </span>
+                </span>
+              </a>
             ))}
           </div>
           <div className="flex flex-col gap-3">

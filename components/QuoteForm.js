@@ -3,9 +3,7 @@
 import { useState } from "react";
 import { business, servedCityNames, legal } from "@/lib/business";
 
-// TODO: replace with a real Web3Forms access key (free, no account, from
-// web3forms.com) before launch. Submissions will fail silently until then.
-const WEB3FORMS_ACCESS_KEY = "REPLACE_WITH_WEB3FORMS_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "d4e64292-dfb7-4d59-9553-92c97daa9eaa";
 
 const initialState = {
   serviceType: "personal",
