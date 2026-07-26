@@ -26,7 +26,7 @@ export default function LocalBusinessSchema({ description }) {
     name: business.name,
     description:
       description ??
-      "Mobile computer repair and IT support serving Metro Vancouver, BC.",
+      "Computer repair and IT support serving Metro Vancouver, BC.",
     telephone: business.phoneDisplay,
     email: business.email,
     url: business.domain,

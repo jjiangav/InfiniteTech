@@ -58,9 +58,9 @@ export default function QuoteForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-lg border border-green-200 bg-green-50 p-6 text-center">
-        <p className="text-lg font-semibold text-green-800">Got it — thanks.</p>
-        <p className="mt-2 text-sm text-green-700">
+      <div className="rounded-md border border-line bg-white p-6 text-center">
+        <p className="text-lg font-bold text-ink">Got it — thanks.</p>
+        <p className="mt-2 text-sm text-ink-soft">
           I’ll get back to you shortly. If it’s urgent, call {business.phoneDisplay}.
         </p>
       </div>
@@ -71,7 +71,7 @@ export default function QuoteForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Service type toggle */}
       <fieldset>
-        <legend className="text-sm font-semibold text-slate-900">What do you need help with?</legend>
+        <legend className="text-sm font-semibold text-ink">What do you need help with?</legend>
         <div className="mt-2 grid grid-cols-2 gap-3">
           {[
             { key: "personal", label: "Personal device" },
@@ -83,8 +83,8 @@ export default function QuoteForm() {
               onClick={() => update("serviceType", opt.key)}
               className={`rounded-md border px-4 py-3 text-sm font-medium ${
                 form.serviceType === opt.key
-                  ? "border-blue-600 bg-blue-50 text-blue-800"
-                  : "border-slate-300 text-slate-700 hover:bg-slate-50"
+                  ? "border-brand-blue bg-brand-blue/10 text-brand-blue-deep"
+                  : "border-line text-ink-soft hover:bg-paper"
               }`}
             >
               {opt.label}
@@ -95,7 +95,7 @@ export default function QuoteForm() {
 
       <div className="grid gap-4 sm:grid-cols-3">
         <div>
-          <label className="text-sm font-semibold text-slate-900" htmlFor="name">Name</label>
+          <label className="text-sm font-semibold text-ink" htmlFor="name">Name</label>
           <input
             id="name"
             name="name"
@@ -103,11 +103,11 @@ export default function QuoteForm() {
             required
             value={form.name}
             onChange={(e) => update("name", e.target.value)}
-            className="mt-2 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
           />
         </div>
         <div>
-          <label className="text-sm font-semibold text-slate-900" htmlFor="phone">Phone</label>
+          <label className="text-sm font-semibold text-ink" htmlFor="phone">Phone</label>
           <input
             id="phone"
             name="phone"
@@ -115,24 +115,24 @@ export default function QuoteForm() {
             required
             value={form.phone}
             onChange={(e) => update("phone", e.target.value)}
-            className="mt-2 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
           />
         </div>
         <div>
-          <label className="text-sm font-semibold text-slate-900" htmlFor="email">Email</label>
+          <label className="text-sm font-semibold text-ink" htmlFor="email">Email</label>
           <input
             id="email"
             name="email"
             type="email"
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
-            className="mt-2 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
           />
         </div>
       </div>
 
       <div>
-        <label className="text-sm font-semibold text-slate-900" htmlFor="city">City</label>
+        <label className="text-sm font-semibold text-ink" htmlFor="city">City</label>
         <select
           id="city"
           value={form.isElsewhere ? "elsewhere" : form.city}
@@ -145,7 +145,7 @@ export default function QuoteForm() {
               update("city", e.target.value);
             }
           }}
-          className="mt-2 w-full max-w-xs rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="mt-2 w-full max-w-xs rounded-md border border-line px-3 py-2 text-sm"
         >
           <option value="" disabled>Select a city</option>
           {servedCityNames.map((c) => (
@@ -154,14 +154,14 @@ export default function QuoteForm() {
           <option value="elsewhere">Somewhere else</option>
         </select>
         {form.isElsewhere && (
-          <p className="mt-2 text-sm text-amber-700">
-            I’ll confirm coverage before booking anything.
+          <p className="mt-2 text-sm text-brand-blue-deep">
+            No problem — I’ll follow up to see how I can help.
           </p>
         )}
       </div>
 
       <div>
-        <label className="text-sm font-semibold text-slate-900" htmlFor="message">
+        <label className="text-sm font-semibold text-ink" htmlFor="message">
           What’s going on?
         </label>
         <textarea
@@ -172,11 +172,11 @@ export default function QuoteForm() {
           placeholder="Tell me about the problem, or what you need help with."
           value={form.message}
           onChange={(e) => update("message", e.target.value)}
-          className="mt-2 w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+          className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
         />
       </div>
 
-      <label className="flex items-start gap-2 text-sm text-slate-600">
+      <label className="flex items-start gap-2 text-sm text-ink-soft">
         <input
           type="checkbox"
           checked={form.smsConsent}
@@ -186,7 +186,7 @@ export default function QuoteForm() {
         It’s okay to text me about this.
       </label>
 
-      <div className="space-y-1 text-xs text-slate-500">
+      <div className="space-y-1 font-mono text-xs text-grey">
         <p>{legal.diagnosticNote}</p>
         <p>{legal.dataLossNote}</p>
         <p>{legal.privacyNote}</p>
@@ -201,7 +201,7 @@ export default function QuoteForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-60 sm:w-auto"
+        className="w-full rounded-md bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-blue-deep disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? "Sending…" : "Send my quote request"}
       </button>

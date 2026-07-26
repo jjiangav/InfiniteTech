@@ -1,21 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #14181f;
+  --background: #edece8;
+  --foreground: #111111;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* Infinite Tech brand */
+  --color-paper: #edece8;
+  --color-ink: #111111;
+  --color-ink-soft: #4a4a45;
+  --color-grey: #6b6b66;
+  --color-line: #dcdad4;
+  --color-brand-blue: #1a77de;
+  --color-brand-blue-deep: #0d47a1;
+  --color-brand-yellow: #eee32c;
+
+  --font-sans: var(--font-archivo), Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Keeps the sticky mobile CTA bar from covering the last bit of content. */
