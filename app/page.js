@@ -65,7 +65,7 @@ export default function Home() {
               Computer repair &amp; IT support · {business.region}
             </p>
             <h1 className="text-4xl font-extrabold leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Computer broken? Tell us what it’s doing.
+              Need affordable, reliable IT support? Give us a call.
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
               Won’t boot, blue screens, cracked panel, or just crawling — we’ll
@@ -95,7 +95,7 @@ export default function Home() {
               className="flex flex-col gap-0.5 rounded-md bg-brand-yellow px-5 py-4 text-center hover:brightness-95"
             >
               <span className="text-sm font-semibold text-ink">Call or text</span>
-              <span className="font-mono text-2xl font-medium tracking-tight text-ink">
+              <span className="font-mono text-2xl font-medium tracking-tight text-ink [word-spacing:-0.3em]">
                 {business.phoneDisplay}
               </span>
             </a>

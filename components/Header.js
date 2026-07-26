@@ -3,6 +3,7 @@ import Logo from "@/components/Logo";
 import { business } from "@/lib/business";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
