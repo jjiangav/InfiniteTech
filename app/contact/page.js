@@ -11,7 +11,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
       <h1 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">Contact</h1>
       <p className="mt-2 text-ink-soft">
-        Fastest way to hear back is the quote form — it gets straight to me.
+        Fastest way to hear back is the quote form.
       </p>
 
       <div className="mt-8 space-y-4">

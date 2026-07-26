@@ -61,7 +61,7 @@ export default function QuoteForm() {
       <div className="rounded-md border border-line bg-white p-6 text-center">
         <p className="text-lg font-bold text-ink">Got it — thanks.</p>
         <p className="mt-2 text-sm text-ink-soft">
-          I’ll get back to you shortly. If it’s urgent, call {business.phoneDisplay}.
+          We’ll get back to you shortly. If it’s urgent, call {business.phoneDisplay}.
         </p>
       </div>
     );
@@ -155,7 +155,7 @@ export default function QuoteForm() {
         </select>
         {form.isElsewhere && (
           <p className="mt-2 text-sm text-brand-blue-deep">
-            No problem — I’ll follow up to see how I can help.
+            No problem — we’ll follow up to see how we can help.
           </p>
         )}
       </div>
@@ -169,7 +169,7 @@ export default function QuoteForm() {
           name="message"
           rows={5}
           required
-          placeholder="Tell me about the problem, or what you need help with."
+          placeholder="Tell us about the problem, or what you need help with."
           value={form.message}
           onChange={(e) => update("message", e.target.value)}
           className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
@@ -183,7 +183,7 @@ export default function QuoteForm() {
           onChange={(e) => update("smsConsent", e.target.checked)}
           className="mt-0.5"
         />
-        It’s okay to text me about this.
+        It’s okay to follow up by text.
       </label>
 
       <div className="space-y-1 font-mono text-xs text-grey">
@@ -203,7 +203,7 @@ export default function QuoteForm() {
         disabled={status === "submitting"}
         className="w-full rounded-md bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-blue-deep disabled:opacity-60 sm:w-auto"
       >
-        {status === "submitting" ? "Sending…" : "Send my quote request"}
+        {status === "submitting" ? "Sending…" : "Send quote request"}
       </button>
     </form>
   );
