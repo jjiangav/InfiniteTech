@@ -49,9 +49,9 @@ export default function Home() {
               A website or an AI project, built by someone who'll actually talk to you first.
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-              I build sites and AI tools for small businesses in Metro
-              Vancouver. Tell me what you're trying to do — I'll tell you
-              honestly if it's worth doing and what it'd take.
+              Sites and AI tools for small businesses in Metro Vancouver.
+              Describe what you're trying to do, and you'll get an honest
+              answer on whether it's worth doing and what it'd take.
             </p>
             <div className="flex flex-wrap gap-3 pt-1">
               {serviceCards.map((card) => (
