@@ -11,11 +11,6 @@ export default function Footer() {
             <Logo markSize={26} />
             <p className="mt-2 text-sm text-ink-soft">{business.tagline}</p>
             <p className="mt-4 text-sm text-ink-soft">
-              <a href={`tel:${business.phoneHref}`} className="hover:text-ink">
-                {business.phoneDisplay}
-              </a>
-            </p>
-            <p className="text-sm text-ink-soft">
               <a href={`mailto:${business.email}`} className="hover:text-ink">
                 {business.email}
               </a>
@@ -25,19 +20,11 @@ export default function Footer() {
           <div>
             <p className="text-sm font-semibold text-ink">Pages</p>
             <ul className="mt-2 space-y-1 text-sm text-ink-soft">
-              <li><Link href="/quote" className="hover:text-ink">Get a free quote</Link></li>
+              <li><Link href="/services/websites" className="hover:text-ink">Websites</Link></li>
+              <li><Link href="/services/ai" className="hover:text-ink">AI</Link></li>
+              <li><Link href="/pricing" className="hover:text-ink">Pricing</Link></li>
               <li><Link href="/about" className="hover:text-ink">About</Link></li>
               <li><Link href="/contact" className="hover:text-ink">Contact</Link></li>
-              <li>
-                <a
-                  href={business.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-ink"
-                >
-                  YouTube
-                </a>
-              </li>
             </ul>
           </div>
 

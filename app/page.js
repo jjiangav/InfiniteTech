@@ -1,56 +1,37 @@
-import Image from "next/image";
 import Link from "next/link";
 import { business, servedCityNames } from "@/lib/business";
-
-const symptomShortcuts = [
-  "Won't turn on",
-  "Very slow",
-  "Cracked screen",
-  "Battery or charging",
-  "Overheating",
-  "Virus or pop-ups",
-  "Liquid spill",
-  "Lost files",
-  "Something else",
-];
-
-const featuredVideos = [
-  {
-    id: "5JywAoQAIAE",
-    title: "Dell XPS 15 9550 motherboard replacement — not turning on, fixed",
-  },
-  {
-    id: "V0_Ej6f28Nk",
-    title: "How to replace the battery on a Dell Inspiron 13/5000/7300 series",
-  },
-  {
-    id: "ce2cm0L8oYI",
-    title: "Dell Latitude 7370 teardown and repair",
-  },
-  {
-    id: "xicmmISTO24",
-    title: "WiFi and Bluetooth fix — Dell Precision M3800 and XPS 15",
-  },
-];
 
 const howItWorks = [
   {
     step: "01",
     border: "border-ink",
-    title: "Tell us the symptom",
-    body: "Call, or send the form. A photo of the screen tells us more than a paragraph does.",
+    title: "Tell me what you're trying to do",
+    body: "A new site, something slowing your team down, an idea you're not sure is even possible. Start with the problem, not the solution.",
   },
   {
     step: "02",
     border: "border-brand-blue",
-    title: "We follow up",
-    body: "We’ll reach out to talk through the problem and sort out next steps.",
+    title: "I tell you straight",
+    body: "If it's doable, I'll say so and scope it. If it's not worth doing, or not something I can build, I'll say that too.",
   },
   {
     step: "03",
     border: "border-brand-yellow",
     title: "You approve the price",
-    body: "Confirmed in writing before anything starts. No surprises on the invoice.",
+    body: "A fixed project fee, agreed before anything starts. No surprises on the invoice.",
+  },
+];
+
+const serviceCards = [
+  {
+    href: "/services/websites",
+    label: "Websites",
+    body: "A site built for a small business, not templated and forgotten. Mobile-first, fast, and actually maintained.",
+  },
+  {
+    href: "/services/ai",
+    label: "AI",
+    body: "Not sure if AI can help your business? Tell me what's slowing you down and I'll tell you honestly whether it's solvable.",
   },
 ];
 
@@ -62,25 +43,24 @@ export default function Home() {
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-12">
           <div className="flex flex-col gap-6">
             <p className="font-mono text-xs uppercase tracking-widest text-brand-blue">
-              Computer repair &amp; IT support · {business.region}
+              Websites &amp; AI for small business · {business.region}
             </p>
             <h1 className="text-4xl font-extrabold leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Need affordable, reliable IT support? Give us a call.
+              A website or an AI project, built by someone who'll actually talk to you first.
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-              Won’t boot, blue screens, cracked panel, or just crawling — we’ll
-              tell you what it needs and what it’ll cost.
+              I build sites and AI tools for small businesses in Metro
+              Vancouver. Tell me what you're trying to do — I'll tell you
+              honestly if it's worth doing and what it'd take.
             </p>
-            <div className="flex flex-wrap gap-2 pt-1">
-              {symptomShortcuts.map((label) => (
+            <div className="flex flex-wrap gap-3 pt-1">
+              {serviceCards.map((card) => (
                 <Link
-                  key={label}
-                  href="/quote"
-                  className={`rounded-md border border-line bg-white px-4 py-2.5 text-sm font-medium hover:border-ink ${
-                    label === "Something else" ? "text-grey hover:text-ink" : "text-ink"
-                  }`}
+                  key={card.href}
+                  href={card.href}
+                  className="rounded-md border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink hover:border-ink"
                 >
-                  {label}
+                  {card.label}
                 </Link>
               ))}
             </div>
@@ -88,42 +68,26 @@ export default function Home() {
 
           <div className="flex flex-col gap-5 rounded-md bg-brand-blue-deep p-8">
             <p className="text-xl font-bold leading-snug text-white">
-              Fastest way to an answer is a call or a text.
+              Fastest way in is a short conversation, no commitment.
             </p>
-            <a
-              href={`tel:${business.phoneHref}`}
+            <Link
+              href="/contact"
               className="flex flex-col gap-0.5 rounded-md bg-brand-yellow px-5 py-4 text-center hover:brightness-95"
             >
-              <span className="text-sm font-semibold text-ink">Call or text</span>
-              <span className="font-mono text-2xl font-medium tracking-tight text-ink [word-spacing:-0.3em]">
-                {business.phoneDisplay}
-              </span>
-            </a>
-            <Link
-              href="/quote"
+              <span className="text-sm font-semibold text-ink">Start the conversation</span>
+            </Link>
+            <a
+              href={`mailto:${business.email}`}
               className="rounded-md border border-white/25 px-5 py-3.5 text-center text-sm font-semibold text-white hover:border-brand-yellow hover:text-brand-yellow"
             >
-              Send a quote request instead
-            </Link>
+              Or email {business.email}
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Photo band */}
-      <div className="px-4 sm:px-8">
-        <div className="relative h-64 overflow-hidden rounded-md sm:h-80 lg:h-96">
-          <Image
-            src="/images/dellxps1.jpeg"
-            alt="Laptop set up and running after repair"
-            fill
-            sizes="(min-width: 1024px) 1024px, 100vw"
-            className="object-cover"
-          />
-        </div>
-      </div>
-
       {/* How it works */}
-      <section className="mt-14 border-y border-line bg-white px-4 py-14 sm:px-8">
+      <section className="mt-4 border-y border-line bg-white px-4 py-14 sm:px-8">
         <div className="flex flex-col gap-2">
           <p className="font-mono text-xs uppercase tracking-widest text-grey">How it works</p>
           <h2 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
@@ -141,52 +105,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* YouTube trust signal */}
+      {/* Honesty section — no portfolio, this site is the proof */}
       <section className="px-4 py-14 sm:px-8">
         <div className="grid grid-cols-1 items-center gap-10 sm:grid-cols-2">
-          <div className="grid grid-cols-2 gap-3">
-            {featuredVideos.map((video) => (
-              <a
-                key={video.id}
-                href={`https://www.youtube.com/watch?v=${video.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block aspect-video overflow-hidden rounded-md bg-ink"
-              >
-                <Image
-                  src={`/images/youtube/${video.id}.jpg`}
-                  alt={video.title}
-                  fill
-                  sizes="(min-width: 640px) 25vw, 50vw"
-                  className="object-cover transition group-hover:opacity-80"
-                />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 transition group-hover:bg-brand-yellow">
-                    <span className="ml-0.5 h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-ink" />
-                  </span>
-                </span>
-              </a>
-            ))}
-          </div>
           <div className="flex flex-col gap-3">
             <p className="font-mono text-xs uppercase tracking-widest text-grey">
-              See the work firsthand
+              New, and saying so
             </p>
             <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-4xl">
-              Real repairs, filmed start to finish.
+              I don't have a client list to show you yet.
             </h2>
             <p className="max-w-md text-base leading-relaxed text-ink-soft">
-              Teardowns, screen swaps and troubleshooting on the bench. Watch a
-              couple and decide for yourself.
+              What I have is five years working in corporate IT, and this
+              site — built, hosted, and maintained by me. It's the clearest
+              example of what you'd actually get.
             </p>
-            <a
-              href={business.youtubeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/about"
               className="mt-1 text-sm font-semibold text-brand-blue hover:text-brand-blue-deep"
             >
-              Watch on YouTube →
-            </a>
+              More about me →
+            </Link>
+          </div>
+          <div className="rounded-md border border-line bg-white p-8">
+            <p className="text-sm leading-relaxed text-ink-soft">
+              I'd rather tell you I'm building this business than invent a
+              track record I don't have. If we work together, you'll be one
+              of the first — and I'll work harder for that than someone with
+              a full pipeline would.
+            </p>
           </div>
         </div>
       </section>
@@ -195,16 +142,17 @@ export default function Home() {
       <section className="border-y border-line bg-white px-4 py-14 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex max-w-xl flex-col gap-2">
-            <p className="font-mono text-xs uppercase tracking-widest text-grey">Service area</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-grey">Who I work with</p>
             <h2 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
-              Ten cities across Metro Vancouver
+              Any small business in Metro Vancouver
             </h2>
             <p className="text-base leading-relaxed text-ink-soft">
-              Ten cities, one phone call away.
+              Web and AI work is remote-friendly — it's not limited to how
+              far I can drive. Based out of Surrey, working across:
             </p>
           </div>
-          <Link href="/quote" className="text-sm font-semibold text-brand-blue hover:text-brand-blue-deep">
-            Not on the list? Ask anyway →
+          <Link href="/contact" className="text-sm font-semibold text-brand-blue hover:text-brand-blue-deep">
+            Not sure if you're a fit? Ask anyway →
           </Link>
         </div>
         <div className="mt-8 grid grid-cols-1 gap-x-10 gap-y-2 border-t border-line pt-6 sm:grid-cols-2">
@@ -213,31 +161,6 @@ export default function Home() {
               {city}
             </p>
           ))}
-        </div>
-      </section>
-
-      {/* Business path */}
-      <section className="px-4 py-14 sm:px-8">
-        <div className="flex flex-col gap-6 rounded-md bg-brand-blue p-8 sm:flex-row sm:items-center sm:justify-between sm:p-12">
-          <div className="flex max-w-lg flex-col gap-3">
-            <p className="font-mono text-xs uppercase tracking-widest text-brand-yellow">
-              For small business
-            </p>
-            <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl">
-              Run a business? We handle the IT side too.
-            </h2>
-            <p className="text-sm leading-relaxed text-white/85">
-              Network and printer setup, new computer rollouts, Microsoft 365
-              questions, and general troubleshooting — for businesses that
-              don’t need a full-time IT department.
-            </p>
-          </div>
-          <Link
-            href="/quote"
-            className="shrink-0 rounded-md bg-white px-6 py-3 text-center text-sm font-semibold text-ink hover:bg-brand-yellow"
-          >
-            Get a quote →
-          </Link>
         </div>
       </section>
     </div>

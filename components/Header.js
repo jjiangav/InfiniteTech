@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import { business } from "@/lib/business";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/services/websites", label: "Websites" },
+  { href: "/services/ai", label: "AI" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -29,25 +31,19 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
-          <a
-            href={`tel:${business.phoneHref}`}
-            className="text-sm font-medium text-ink-soft hover:text-ink"
-          >
-            {business.phoneDisplay}
-          </a>
           <Link
-            href="/quote"
+            href="/contact"
             className="rounded-md bg-brand-blue px-4 py-2 text-sm font-semibold text-white hover:bg-brand-blue-deep"
           >
-            Get a free quote
+            Get in touch
           </Link>
         </div>
 
         <Link
-          href="/quote"
+          href="/contact"
           className="rounded-md bg-brand-blue px-3 py-2 text-sm font-semibold text-white md:hidden"
         >
-          Free quote
+          Get in touch
         </Link>
       </div>
     </header>

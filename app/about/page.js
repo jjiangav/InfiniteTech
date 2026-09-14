@@ -3,7 +3,7 @@ import { business, servedCityNames, legal } from "@/lib/business";
 
 export const metadata = {
   title: "About",
-  description: "Computer repair and IT support for Metro Vancouver, run by Jimmy Jiang.",
+  description: "Websites and AI for small businesses in Metro Vancouver, run by Jimmy Jiang.",
 };
 
 export default function AboutPage() {
@@ -21,8 +21,8 @@ export default function AboutPage() {
           <p className="mt-1 text-lg font-bold text-ink">{business.ownerName}</p>
         </div>
         <p>
-          Five years of experience working in corporate IT. Experienced with
-          IT Support, computer repair, websites, and AI.
+          Five years of experience working in corporate IT, building and
+          supporting websites and AI tools.
         </p>
         <p>
           I’m building this business and I’ll work hard for your
@@ -50,7 +50,6 @@ export default function AboutPage() {
 
       <div className="mt-10 space-y-2 rounded-md bg-paper p-5 font-mono text-xs text-grey">
         <p>{legal.priceDisclaimer}</p>
-        <p>{legal.dataLossNote}</p>
       </div>
 
       <div className="mt-8">

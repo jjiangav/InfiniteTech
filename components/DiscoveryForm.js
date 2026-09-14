@@ -1,22 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { business, servedCityNames, legal } from "@/lib/business";
-
-const WEB3FORMS_ACCESS_KEY = "d4e64292-dfb7-4d59-9553-92c97daa9eaa";
+import { business, legal, web3formsAccessKey } from "@/lib/business";
 
 const initialState = {
-  serviceType: "personal",
+  interest: "not-sure",
   name: "",
   phone: "",
   email: "",
-  city: "",
-  isElsewhere: false,
+  businessDescription: "",
   message: "",
+  budget: "",
   smsConsent: false,
 };
 
-export default function QuoteForm() {
+export default function DiscoveryForm() {
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
 
@@ -29,12 +27,13 @@ export default function QuoteForm() {
     setStatus("submitting");
 
     const payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: `New ${form.serviceType} quote request — ${business.name}`,
-      from_name: form.name || "Website quote form",
-      service_type: form.serviceType,
-      city: form.isElsewhere ? "Somewhere else (unconfirmed)" : form.city,
+      access_key: web3formsAccessKey,
+      subject: `New discovery call request (${form.interest}) — ${business.name}`,
+      from_name: form.name || "Website discovery form",
+      interest: form.interest,
+      business_description: form.businessDescription,
       message: form.message,
+      budget: form.budget,
       name: form.name,
       phone: form.phone,
       email: form.email,
@@ -59,7 +58,8 @@ export default function QuoteForm() {
       <div className="rounded-md border border-line bg-white p-6 text-center">
         <p className="text-lg font-bold text-ink">Got it — thanks.</p>
         <p className="mt-2 text-sm text-ink-soft">
-          We’ll get back to you shortly. If it’s urgent, call {business.phoneDisplay}.
+          I’ll read this over and get back to you to set up a time to talk. If
+          it’s urgent, email {business.email}.
         </p>
       </div>
     );
@@ -67,20 +67,20 @@ export default function QuoteForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Service type toggle */}
       <fieldset>
-        <legend className="text-sm font-semibold text-ink">What do you need help with?</legend>
-        <div className="mt-2 grid grid-cols-2 gap-3">
+        <legend className="text-sm font-semibold text-ink">What are you interested in?</legend>
+        <div className="mt-2 grid grid-cols-3 gap-3">
           {[
-            { key: "personal", label: "Personal device" },
-            { key: "business", label: "Business IT" },
+            { key: "website", label: "A website" },
+            { key: "ai", label: "AI" },
+            { key: "not-sure", label: "Not sure yet" },
           ].map((opt) => (
             <button
               key={opt.key}
               type="button"
-              onClick={() => update("serviceType", opt.key)}
+              onClick={() => update("interest", opt.key)}
               className={`rounded-md border px-4 py-3 text-sm font-medium ${
-                form.serviceType === opt.key
+                form.interest === opt.key
                   ? "border-brand-blue bg-brand-blue/10 text-brand-blue-deep"
                   : "border-line text-ink-soft hover:bg-paper"
               }`}
@@ -90,6 +90,22 @@ export default function QuoteForm() {
           ))}
         </div>
       </fieldset>
+
+      <div>
+        <label className="text-sm font-semibold text-ink" htmlFor="businessDescription">
+          What does your business do?
+        </label>
+        <input
+          id="businessDescription"
+          name="business_description"
+          type="text"
+          required
+          placeholder="e.g. residential plumbing, run a dog grooming shop, small accounting practice"
+          value={form.businessDescription}
+          onChange={(e) => update("businessDescription", e.target.value)}
+          className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
+        />
+      </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
         <div>
@@ -130,52 +146,34 @@ export default function QuoteForm() {
       </div>
 
       <div>
-        <label className="text-sm font-semibold text-ink" htmlFor="city">City</label>
-        <select
-          id="city"
-          value={form.isElsewhere ? "elsewhere" : form.city}
-          onChange={(e) => {
-            if (e.target.value === "elsewhere") {
-              update("isElsewhere", true);
-              update("city", "");
-            } else {
-              update("isElsewhere", false);
-              update("city", e.target.value);
-            }
-          }}
-          className="mt-2 w-full max-w-xs rounded-md border border-line px-3 py-2 text-sm"
-        >
-          <option value="" disabled>Select a city</option>
-          {servedCityNames.map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-          <option value="elsewhere">Somewhere else</option>
-        </select>
-        {form.isElsewhere && (
-          <p className="mt-2 text-sm text-brand-blue-deep">
-            No problem — we’ll follow up to see how we can help.
-          </p>
-        )}
-      </div>
-
-      <div>
         <label className="text-sm font-semibold text-ink" htmlFor="message">
-          What’s going on?
+          What are you trying to build or fix?
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
           required
-          placeholder="Tell us about the problem, or what you need help with."
+          placeholder="Tell me what's going on — a new site, something slowing your team down, an idea you're not sure is possible."
           value={form.message}
           onChange={(e) => update("message", e.target.value)}
           className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
         />
-        <p className="mt-2 text-xs text-grey">
-          Got a photo of the screen or error? This box is text only — text it
-          to {business.phoneDisplay} instead.
-        </p>
+      </div>
+
+      <div>
+        <label className="text-sm font-semibold text-ink" htmlFor="budget">
+          Rough budget in mind, if you have one <span className="font-normal text-grey">(optional)</span>
+        </label>
+        <input
+          id="budget"
+          name="budget"
+          type="text"
+          placeholder="No pressure — just helps me understand fit."
+          value={form.budget}
+          onChange={(e) => update("budget", e.target.value)}
+          className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
+        />
       </div>
 
       <label className="flex items-start gap-2 text-sm text-ink-soft">
@@ -188,15 +186,11 @@ export default function QuoteForm() {
         It’s okay to follow up by text.
       </label>
 
-      <div className="space-y-1 font-mono text-xs text-grey">
-        <p>{legal.diagnosticNote}</p>
-        <p>{legal.dataLossNote}</p>
-        <p>{legal.privacyNote}</p>
-      </div>
+      <p className="font-mono text-xs text-grey">{legal.privacyNote}</p>
 
       {status === "error" && (
         <p className="text-sm text-red-600">
-          Something went wrong sending this. Please call {business.phoneDisplay} instead.
+          Something went wrong sending this. Please email {business.email} instead.
         </p>
       )}
 
@@ -205,7 +199,7 @@ export default function QuoteForm() {
         disabled={status === "submitting"}
         className="w-full rounded-md bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-blue-deep disabled:opacity-60 sm:w-auto"
       >
-        {status === "submitting" ? "Sending…" : "Send quote request"}
+        {status === "submitting" ? "Sending…" : "Start the conversation"}
       </button>
     </form>
   );

@@ -3,7 +3,7 @@ import { business, servedCityNames, legal } from "@/lib/business";
 
 export const metadata = {
   title: "Contact",
-  description: "Call, email, or send a quote request. Serving Metro Vancouver.",
+  description: "Email or send a quote request. Serving Metro Vancouver.",
 };
 
 export default function ContactPage() {
@@ -15,12 +15,6 @@ export default function ContactPage() {
       </p>
 
       <div className="mt-8 space-y-4">
-        <a
-          href={`tel:${business.phoneHref}`}
-          className="block rounded-md border border-line bg-white p-4 text-sm font-medium text-ink hover:bg-paper"
-        >
-          Call {business.phoneDisplay}
-        </a>
         <a
           href={`mailto:${business.email}`}
           className="block rounded-md border border-line bg-white p-4 text-sm font-medium text-ink hover:bg-paper"
