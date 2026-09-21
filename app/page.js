@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { business, servedCityNames } from "@/lib/business";
 
@@ -86,6 +87,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Hero photo */}
+      <section className="px-4 sm:px-8">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md sm:aspect-[21/9]">
+          <Image
+            src="/images/hero.jpg"
+            alt="Hands-on at the workbench"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+      </section>
+
       {/* How it works */}
       <section className="mt-4 border-y border-line bg-white px-4 py-14 sm:px-8">
         <div className="flex flex-col gap-2">
@@ -102,39 +116,6 @@ export default function Home() {
               <p className="text-sm leading-relaxed text-ink-soft">{item.body}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Honesty section — no portfolio, this site is the proof */}
-      <section className="px-4 py-14 sm:px-8">
-        <div className="grid grid-cols-1 items-center gap-10 sm:grid-cols-2">
-          <div className="flex flex-col gap-3">
-            <p className="font-mono text-xs uppercase tracking-widest text-grey">
-              New, and saying so
-            </p>
-            <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-4xl">
-              I don't have a client list to show you yet.
-            </h2>
-            <p className="max-w-md text-base leading-relaxed text-ink-soft">
-              What I have is five years working in corporate IT, and this
-              site — built, hosted, and maintained by me. It's the clearest
-              example of what you'd actually get.
-            </p>
-            <Link
-              href="/about"
-              className="mt-1 text-sm font-semibold text-brand-blue hover:text-brand-blue-deep"
-            >
-              More about me →
-            </Link>
-          </div>
-          <div className="rounded-md border border-line bg-white p-8">
-            <p className="text-sm leading-relaxed text-ink-soft">
-              I'd rather tell you I'm building this business than invent a
-              track record I don't have. If we work together, you'll be one
-              of the first — and I'll work harder for that than someone with
-              a full pipeline would.
-            </p>
-          </div>
         </div>
       </section>
 
