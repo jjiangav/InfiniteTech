@@ -3,7 +3,7 @@ import DiscoveryForm from "@/components/DiscoveryForm";
 export const metadata = {
   title: "Get a free quote",
   description:
-    "Tell me about your website or AI project and I'll get back to you fast, serving Metro Vancouver.",
+    "Tell us about your website or AI project and we'll get back to you fast, serving Metro Vancouver.",
 };
 
 export default function QuotePage() {
@@ -13,7 +13,7 @@ export default function QuotePage() {
         Get a free quote
       </h1>
       <p className="mt-2 text-ink-soft">
-        Tell me what you’re trying to build and I’ll get back to you fast.
+        Tell us what you’re trying to build and we’ll get back to you fast.
       </p>
 
       <div className="mt-8">

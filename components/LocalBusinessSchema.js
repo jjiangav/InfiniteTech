@@ -26,7 +26,7 @@ export default function LocalBusinessSchema({ description }) {
     name: business.name,
     description:
       description ??
-      "Websites and AI services for small businesses, serving Metro Vancouver, BC.",
+      "IT solutions and projects for small businesses, serving Metro Vancouver, BC.",
     email: business.email,
     url: business.domain,
     areaServed: servedCityNames.map((city) => ({

@@ -3,7 +3,7 @@ import { business, servedCityNames, legal } from "@/lib/business";
 
 export const metadata = {
   title: "About",
-  description: "Websites and AI for small businesses in Metro Vancouver, run by Jimmy Jiang.",
+  description: "IT solutions and projects for small businesses in Metro Vancouver, founded by Jimmy Jiang.",
 };
 
 export default function AboutPage() {
@@ -22,10 +22,10 @@ export default function AboutPage() {
         </div>
         <p>
           Five years of experience working in corporate IT, building and
-          supporting websites and AI tools.
+          supporting IT solutions and projects.
         </p>
         <p>
-          I’m building this business and I’ll work hard for your
+          We’re building this business and we’ll work hard for your
           recommendation.
         </p>
         <p>

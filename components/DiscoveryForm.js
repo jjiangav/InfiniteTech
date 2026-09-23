@@ -58,8 +58,8 @@ export default function DiscoveryForm() {
       <div className="rounded-md border border-line bg-white p-6 text-center">
         <p className="text-lg font-bold text-ink">Got it — thanks.</p>
         <p className="mt-2 text-sm text-ink-soft">
-          I’ll read this over and get back to you to set up a time to talk. If
-          it’s urgent, email {business.email}.
+          We’ll read this over and get back to you to set up a time to talk.
+          If it’s urgent, email {business.email}.
         </p>
       </div>
     );
@@ -154,7 +154,7 @@ export default function DiscoveryForm() {
           name="message"
           rows={5}
           required
-          placeholder="Tell me what's going on — a new site, something slowing your team down, an idea you're not sure is possible."
+          placeholder="Tell us what's going on — a new site, something slowing your team down, an idea you're not sure is possible."
           value={form.message}
           onChange={(e) => update("message", e.target.value)}
           className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
@@ -169,7 +169,7 @@ export default function DiscoveryForm() {
           id="budget"
           name="budget"
           type="text"
-          placeholder="No pressure — just helps me understand fit."
+          placeholder="No pressure — just helps us understand fit."
           value={form.budget}
           onChange={(e) => update("budget", e.target.value)}
           className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"

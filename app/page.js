@@ -6,14 +6,14 @@ const howItWorks = [
   {
     step: "01",
     border: "border-ink",
-    title: "Tell me what you're trying to do",
+    title: "Tell us what you're trying to do",
     body: "A new site, something slowing your team down, an idea you're not sure is even possible. Start with the problem, not the solution.",
   },
   {
     step: "02",
     border: "border-brand-blue",
-    title: "I tell you straight",
-    body: "If it's doable, I'll say so and scope it. If it's not worth doing, or not something I can build, I'll say that too.",
+    title: "We tell you straight",
+    body: "If it's doable, we'll say so and scope it. If it's not worth doing, or not something we can build, we'll say that too.",
   },
   {
     step: "03",
@@ -32,7 +32,7 @@ const serviceCards = [
   {
     href: "/services/ai",
     label: "AI",
-    body: "Not sure if AI can help your business? Tell me what's slowing you down and I'll tell you honestly whether it's solvable.",
+    body: "Not sure if AI can help your business? Tell us what's slowing you down and we'll tell you honestly whether it's solvable.",
   },
 ];
 
@@ -44,15 +44,15 @@ export default function Home() {
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-12">
           <div className="flex flex-col gap-6">
             <p className="font-mono text-xs uppercase tracking-widest text-brand-blue">
-              Websites &amp; AI for small business · {business.region}
+              IT solutions &amp; projects · {business.region}
             </p>
             <h1 className="text-4xl font-extrabold leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              A website or an AI project, built by someone who'll actually talk to you first.
+              An IT project, built by a team that'll actually talk to you first.
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-              Sites and AI tools for small businesses in Metro Vancouver.
-              Describe what you're trying to do, and you'll get an honest
-              answer on whether it's worth doing and what it'd take.
+              IT solutions and projects for small businesses in Metro
+              Vancouver. Describe what you're trying to do, and you'll get an
+              honest answer on whether it's worth doing and what it'd take.
             </p>
             <div className="flex flex-wrap gap-3 pt-1">
               {serviceCards.map((card) => (
@@ -123,13 +123,13 @@ export default function Home() {
       <section className="border-y border-line bg-white px-4 py-14 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex max-w-xl flex-col gap-2">
-            <p className="font-mono text-xs uppercase tracking-widest text-grey">Who I work with</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-grey">Who we work with</p>
             <h2 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
               Any small business in Metro Vancouver
             </h2>
             <p className="text-base leading-relaxed text-ink-soft">
-              Web and AI work is remote-friendly — it's not limited to how
-              far I can drive. Based out of Surrey, working across:
+              IT work is remote-friendly — it's not limited to how far we
+              can drive. Based out of Surrey, working across:
             </p>
           </div>
           <Link href="/contact" className="text-sm font-semibold text-brand-blue hover:text-brand-blue-deep">

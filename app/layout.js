@@ -23,7 +23,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata = {
   metadataBase: new URL(business.domain),
   title: {
-    default: `${business.name} — websites and AI for small businesses, Metro Vancouver`,
+    default: `${business.name} — IT solutions and projects, Metro Vancouver`,
     template: `%s — ${business.name}`,
   },
   description: business.tagline,
