@@ -47,7 +47,7 @@ export default function Home() {
               IT solutions &amp; projects · {business.region}
             </p>
             <h1 className="text-4xl font-extrabold leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              An IT project, built by a team that'll actually talk to you first.
+              Business IT and AI solutions serving Greater Vancouver
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
               IT solutions and projects for small businesses in Metro
