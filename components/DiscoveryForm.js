@@ -8,7 +8,6 @@ const initialState = {
   name: "",
   phone: "",
   email: "",
-  businessDescription: "",
   message: "",
   budget: "",
   smsConsent: false,
@@ -31,7 +30,6 @@ export default function DiscoveryForm() {
       subject: `New discovery call request (${form.interest}) — ${business.name}`,
       from_name: form.name || "Website discovery form",
       interest: form.interest,
-      business_description: form.businessDescription,
       message: form.message,
       budget: form.budget,
       name: form.name,
@@ -90,22 +88,6 @@ export default function DiscoveryForm() {
           ))}
         </div>
       </fieldset>
-
-      <div>
-        <label className="text-sm font-semibold text-ink" htmlFor="businessDescription">
-          What does your business do?
-        </label>
-        <input
-          id="businessDescription"
-          name="business_description"
-          type="text"
-          required
-          placeholder="e.g. residential plumbing, run a dog grooming shop, small accounting practice"
-          value={form.businessDescription}
-          onChange={(e) => update("businessDescription", e.target.value)}
-          className="mt-2 w-full rounded-md border border-line px-3 py-2 text-sm"
-        />
-      </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
         <div>

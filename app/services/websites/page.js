@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { business } from "@/lib/business";
+import { pageMetadata } from "@/lib/seo";
+import Faq from "@/components/Faq";
+import ServiceSchema from "@/components/ServiceSchema";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Websites for small business",
   description:
     "A website built for your small business — mobile-first, fast, and actually maintained. Serving Metro Vancouver.",
-};
+  path: "/services/websites",
+});
 
 const approach = [
   {
@@ -22,9 +26,26 @@ const approach = [
   },
 ];
 
+const faqItems = [
+  {
+    question: "How is a website priced?",
+    answer:
+      "As a fixed project fee, agreed after a scoping conversation — not hourly, and not off a rate card. See the pricing page for how that works.",
+  },
+  {
+    question: "Do you have example websites to show?",
+    answer:
+      "Not yet under the Infinite Tech name — this site is the current example of the work. See the about page for the full picture.",
+  },
+];
+
 export default function WebsitesPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <ServiceSchema
+        name="Website Design and Development"
+        description="Custom, mobile-first websites built for small businesses in Metro Vancouver."
+      />
       <p className="font-mono text-xs uppercase tracking-widest text-brand-blue">Services</p>
       <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
         Websites for small business
@@ -44,28 +65,7 @@ export default function WebsitesPage() {
         ))}
       </div>
 
-      <div className="mt-10 rounded-md border border-line bg-white p-6">
-        <h2 className="text-lg font-bold text-ink">How it's priced</h2>
-        <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-          A fixed project fee, agreed after a scoping conversation — not
-          hourly, and not off a rate card. See{" "}
-          <Link href="/pricing" className="font-medium text-brand-blue hover:text-brand-blue-deep">
-            how pricing works
-          </Link>{" "}
-          for more.
-        </p>
-      </div>
-
-      <div className="mt-10 space-y-2 rounded-md bg-paper p-5 font-mono text-xs text-grey">
-        <p>
-          No client sites to show yet — this site is the current example of
-          the work. See{" "}
-          <Link href="/about" className="font-medium hover:text-ink">
-            about
-          </Link>{" "}
-          for the full picture.
-        </p>
-      </div>
+      <Faq items={faqItems} />
 
       <div className="mt-8 flex flex-wrap gap-3">
         <Link

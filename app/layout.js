@@ -20,13 +20,40 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const defaultTitle = `${business.name} — IT solutions and projects, Metro Vancouver`;
+
 export const metadata = {
   metadataBase: new URL(business.domain),
   title: {
-    default: `${business.name} — IT solutions and projects, Metro Vancouver`,
+    default: defaultTitle,
     template: `%s — ${business.name}`,
   },
   description: business.tagline,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: defaultTitle,
+    description: business.tagline,
+    url: business.domain,
+    siteName: business.name,
+    locale: "en_CA",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero.jpg",
+        width: 1027,
+        height: 731,
+        alt: business.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: business.tagline,
+    images: ["/images/hero.jpg"],
+  },
 };
 
 export default function RootLayout({ children }) {

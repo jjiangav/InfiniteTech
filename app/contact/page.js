@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { business, servedCityNames, legal } from "@/lib/business";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Contact",
   description: "Email or send a quote request. Serving Metro Vancouver.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

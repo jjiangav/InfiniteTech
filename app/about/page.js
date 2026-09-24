@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { business, servedCityNames, legal } from "@/lib/business";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description: "IT solutions and projects for small businesses in Metro Vancouver, founded by Jimmy Jiang.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

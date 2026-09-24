@@ -1,10 +1,12 @@
 import DiscoveryForm from "@/components/DiscoveryForm";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Get a free quote",
   description:
     "Tell us about your website or AI project and we'll get back to you fast, serving Metro Vancouver.",
-};
+  path: "/quote",
+});
 
 export default function QuotePage() {
   return (
